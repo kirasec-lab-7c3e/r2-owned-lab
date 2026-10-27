@@ -23,12 +23,6 @@ pull_request_rules:
     actions:
       comment:
         message: "MARK-Q4=[{{ author|attr('__class__') }}]"
-  - name: Q5
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: "MARK-Q5=[{{ cycler }}]"
   - name: Q6
     conditions:
       - -closed
@@ -40,4 +34,4 @@ pull_request_rules:
       - -closed
     actions:
       comment:
-        message: "MARK-Q7=[{{ author|string|list }}]"
+        message: "MARK-Q7=[{{ author|pprint }}]"

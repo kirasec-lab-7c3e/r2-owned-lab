@@ -143,12 +143,3 @@ pull_request_rules:
           B16=[
           {{ author|select("string")|list }}
           ]
-  - name: B17
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B17=[
-          {{ lipsum.__globals__ }}
-          ]

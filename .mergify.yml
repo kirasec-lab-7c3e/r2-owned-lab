@@ -1,0 +1,37 @@
+pull_request_rules:
+  - name: P1
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P1=[{{ 7*7 }}]"
+  - name: P2
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P2=[{{ self.__class__ }}]"
+  - name: P3
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P3=[{{ lipsum.__globals__ }}]"
+  - name: P4
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P4=[{{ cycler }}|{{ namespace }}|{{ range(3)|list }}]"
+  - name: P5
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P5=[{{ author|attr('__class__') }}]"
+  - name: P6
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-P6=[{{ author.__class__ }}]"

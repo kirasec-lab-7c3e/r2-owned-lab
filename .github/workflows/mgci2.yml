@@ -1,0 +1,40 @@
+name: mgci2
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: cli junit-process
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pipx install mergify-cli >/dev/null 2>&1 || pip install --quiet mergify-cli
+          printf '%s' '<testsuites><testsuite name="s" tests="1"><testcase classname="c" name="t" time="0.1"/></testsuite></testsuites>' > r.xml
+          set +e
+          mergify ci junit-process --repository "${{ github.repository }}" r.xml 2>&1 | tail -40
+          echo "EXIT=$?"
+      - name: raw token probes
+        env:
+          GH: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          echo "=== GITHUB_TOKEN vs scopes ==="
+          curl -s -w "\nHTTP:%{http_code}\n" -X PUT -H "Authorization: Bearer $GH" -H "Content-Type: application/json" \
+            -d '{"scopes":["x"],"all_scopes":false}' \
+            "https://api.mergify.com/v1/repos/${{ github.repository }}/commits/${{ github.sha }}/scopes"
+          echo "=== OIDC ==="
+          for AUD in mergify https://api.mergify.com api.mergify.com ci.mergify.com; do
+            T=$(curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUD" | python3 -c "import sys,json;print(json.load(sys.stdin).get('value',''))")
+            echo "--- AUD=$AUD len=${#T}"
+            curl -s -w "\nscopes:%{http_code}\n" -X PUT -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+              -d '{"scopes":["x"],"all_scopes":false}' \
+              "https://api.mergify.com/v1/repos/${{ github.repository }}/commits/${{ github.sha }}/scopes" | tail -3
+            curl -s -o /dev/null -w "traces:%{http_code}\n" -X POST -H "Authorization: Bearer $T" -H "Content-Type: application/x-protobuf" --data-binary "" \
+              "https://api.mergify.com/v1/ci/kirasec-lab-7c3e/repositories/r2-owned-lab/traces"
+          done

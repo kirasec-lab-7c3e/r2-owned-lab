@@ -1,91 +1,244 @@
 pull_request_rules:
-  - name: C1
+  - name: F_abs
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C1=[
-          {{ (author|attr("format"))("{0.__class__}", author) }}
+          F_abs=[
+          {{ author|abs }}
           ]
-  - name: C2
+  - name: F_attr
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C2=[
-          {{ (author|attr("format"))("A{0}B", author) }}
+          F_attr=[
+          {{ author|attr }}
           ]
-  - name: C3
+  - name: F_batch
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C3=[
-          {{ author.format("{0.__class__}", author) }}
+          F_batch=[
+          {{ author|batch }}
           ]
-  - name: C4
+  - name: F_capitalize
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C4=[
-          {{ (author|attr("encode")) }}
+          F_capitalize=[
+          {{ author|capitalize }}
           ]
-  - name: C5
+  - name: F_center
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C5=[
-          {{ (author|attr("__class__")) }}
+          F_center=[
+          {{ author|center }}
           ]
-  - name: C6
+  - name: F_count
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C6=[
-          {{ commits }}
+          F_count=[
+          {{ author|count }}
           ]
-  - name: C7
+  - name: F_d
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C7=[
-          {{ commits|first }}
+          F_d=[
+          {{ author|d }}
           ]
-  - name: C8
+  - name: F_default
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C8=[
-          {{ (author|attr("format"))("{0.__class__.__base__.__subclasses__}", author) }}
+          F_default=[
+          {{ author|default }}
           ]
-  - name: C9
+  - name: F_dictsort
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C9=[
-          {{ files }}
+          F_dictsort=[
+          {{ author|dictsort }}
           ]
-  - name: C10
+  - name: F_e
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          C10=[
-          {{ (author|attr("upper")) }}
+          F_e=[
+          {{ author|e }}
+          ]
+  - name: F_escape
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_escape=[
+          {{ author|escape }}
+          ]
+  - name: F_filesizeformat
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_filesizeformat=[
+          {{ author|filesizeformat }}
+          ]
+  - name: F_first
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_first=[
+          {{ author|first }}
+          ]
+  - name: F_float
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_float=[
+          {{ author|float }}
+          ]
+  - name: F_forceescape
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_forceescape=[
+          {{ author|forceescape }}
+          ]
+  - name: F_format
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_format=[
+          {{ author|format }}
+          ]
+  - name: F_groupby
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_groupby=[
+          {{ author|groupby }}
+          ]
+  - name: F_indent
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_indent=[
+          {{ author|indent }}
+          ]
+  - name: F_int
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_int=[
+          {{ author|int }}
+          ]
+  - name: F_items
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_items=[
+          {{ author|items }}
+          ]
+  - name: F_join
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_join=[
+          {{ author|join }}
+          ]
+  - name: F_last
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_last=[
+          {{ author|last }}
+          ]
+  - name: F_length
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_length=[
+          {{ author|length }}
+          ]
+  - name: F_list
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_list=[
+          {{ author|list }}
+          ]
+  - name: F_lower
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_lower=[
+          {{ author|lower }}
+          ]
+  - name: F_map
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_map=[
+          {{ author|map }}
+          ]
+  - name: F_max
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          F_max=[
+          {{ author|max }}
           ]

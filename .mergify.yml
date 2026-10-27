@@ -1,244 +1,307 @@
 pull_request_rules:
-  - name: F_abs
+  - name: G_min
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_abs=[
-          {{ author|abs }}
+          G_min=[
+          {{ author|min }}
           ]
-  - name: F_attr
+  - name: G_random
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_attr=[
-          {{ author|attr }}
+          G_random=[
+          {{ author|random }}
           ]
-  - name: F_batch
+  - name: G_reject
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_batch=[
-          {{ author|batch }}
+          G_reject=[
+          {{ author|reject }}
           ]
-  - name: F_capitalize
+  - name: G_rejectattr
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_capitalize=[
-          {{ author|capitalize }}
+          G_rejectattr=[
+          {{ author|rejectattr }}
           ]
-  - name: F_center
+  - name: G_replace
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_center=[
-          {{ author|center }}
+          G_replace=[
+          {{ author|replace }}
           ]
-  - name: F_count
+  - name: G_reverse
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_count=[
-          {{ author|count }}
+          G_reverse=[
+          {{ author|reverse }}
           ]
-  - name: F_d
+  - name: G_round
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_d=[
-          {{ author|d }}
+          G_round=[
+          {{ author|round }}
           ]
-  - name: F_default
+  - name: G_safe
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_default=[
-          {{ author|default }}
+          G_safe=[
+          {{ author|safe }}
           ]
-  - name: F_dictsort
+  - name: G_select
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_dictsort=[
-          {{ author|dictsort }}
+          G_select=[
+          {{ author|select }}
           ]
-  - name: F_e
+  - name: G_selectattr
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_e=[
-          {{ author|e }}
+          G_selectattr=[
+          {{ author|selectattr }}
           ]
-  - name: F_escape
+  - name: G_slice
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_escape=[
-          {{ author|escape }}
+          G_slice=[
+          {{ author|slice }}
           ]
-  - name: F_filesizeformat
+  - name: G_sort
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_filesizeformat=[
-          {{ author|filesizeformat }}
+          G_sort=[
+          {{ author|sort }}
           ]
-  - name: F_first
+  - name: G_string
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_first=[
-          {{ author|first }}
+          G_string=[
+          {{ author|string }}
           ]
-  - name: F_float
+  - name: G_striptags
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_float=[
-          {{ author|float }}
+          G_striptags=[
+          {{ author|striptags }}
           ]
-  - name: F_forceescape
+  - name: G_sum
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_forceescape=[
-          {{ author|forceescape }}
+          G_sum=[
+          {{ author|sum }}
           ]
-  - name: F_format
+  - name: G_title
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_format=[
-          {{ author|format }}
+          G_title=[
+          {{ author|title }}
           ]
-  - name: F_groupby
+  - name: G_trim
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_groupby=[
-          {{ author|groupby }}
+          G_trim=[
+          {{ author|trim }}
           ]
-  - name: F_indent
+  - name: G_truncate
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_indent=[
-          {{ author|indent }}
+          G_truncate=[
+          {{ author|truncate }}
           ]
-  - name: F_int
+  - name: G_unique
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_int=[
-          {{ author|int }}
+          G_unique=[
+          {{ author|unique }}
           ]
-  - name: F_items
+  - name: G_upper
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_items=[
-          {{ author|items }}
+          G_upper=[
+          {{ author|upper }}
           ]
-  - name: F_join
+  - name: G_urlencode
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_join=[
-          {{ author|join }}
+          G_urlencode=[
+          {{ author|urlencode }}
           ]
-  - name: F_last
+  - name: G_urlize
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_last=[
-          {{ author|last }}
+          G_urlize=[
+          {{ author|urlize }}
           ]
-  - name: F_length
+  - name: G_wordcount
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_length=[
-          {{ author|length }}
+          G_wordcount=[
+          {{ author|wordcount }}
           ]
-  - name: F_list
+  - name: G_wordwrap
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_list=[
-          {{ author|list }}
+          G_wordwrap=[
+          {{ author|wordwrap }}
           ]
-  - name: F_lower
+  - name: G_xmlattr
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_lower=[
-          {{ author|lower }}
+          G_xmlattr=[
+          {{ author|xmlattr }}
           ]
-  - name: F_map
+  - name: G_markdownify
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_map=[
-          {{ author|map }}
+          G_markdownify=[
+          {{ author|markdownify }}
           ]
-  - name: F_max
+  - name: G_get_section
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          F_max=[
-          {{ author|max }}
+          G_get_section=[
+          {{ author|get_section }}
+          ]
+  - name: G_shorten
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_shorten=[
+          {{ author|shorten }}
+          ]
+  - name: G_b64encode
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_b64encode=[
+          {{ author|b64encode }}
+          ]
+  - name: G_self
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_self=[
+          {{ self }}
+          ]
+  - name: G_loop
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_loop=[
+          {% for i in files %}{{ loop.index }}{% endfor %}
+          ]
+  - name: G_joiner
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_joiner=[
+          {{ joiner }}
+          ]
+  - name: G_filter
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_filter=[
+          {% filter upper %}x{% endfilter %}
+          ]
+  - name: G_macro
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          G_macro=[
+          {% macro m() %}M{% endmacro %}{{ m() }}
           ]

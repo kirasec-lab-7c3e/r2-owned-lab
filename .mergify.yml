@@ -1,127 +1,127 @@
 pull_request_rules:
-  - name: P1
+  - name: A1
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P1=[
-          A1\t{{ author.__class__ }}
+          A1=[
+          {{ author.__class__ }}
           ]
-  - name: P2
+  - name: A2
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P2=[
-          A2\t{{ author|attr("__class__") }}
+          A2=[
+          {{ author|attr("__class__") }}
           ]
-  - name: P3
+  - name: A3
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P3=[
-          A3\t{{ self }}
+          A3=[
+          {{ self }}
           ]
-  - name: P4
+  - name: A4
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P4=[
-          A4\t{{ lipsum }}
+          A4=[
+          {{ lipsum }}
           ]
-  - name: P5
+  - name: A5
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P5=[
-          A5\t{{ cycler }}
+          A5=[
+          {{ cycler }}
           ]
-  - name: P6
+  - name: A6
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P6=[
-          A6\t{{ namespace }}
+          A6=[
+          {{ namespace }}
           ]
-  - name: P7
+  - name: A7
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P7=[
-          A7\t{{ config }}
+          A7=[
+          {{ config }}
           ]
-  - name: P8
+  - name: A8
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P8=[
-          A8\t{{ ""|attr("__class__") }}
+          A8=[
+          {{ ""|attr("__class__") }}
           ]
-  - name: P9
+  - name: A9
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P9=[
-          A9\t{{ author|upper }}
+          A9=[
+          {{ author|upper }}
           ]
-  - name: P10
+  - name: A10
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P10=[
-          A10\t{{ author|map("upper")|list }}
+          A10=[
+          {{ author|map("upper")|list }}
           ]
-  - name: P11
+  - name: A11
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P11=[
-          A11\t{% for i in range(2) %}X{{ i }}{% endfor %}
+          A11=[
+          {% for i in range(2) %}X{{ i }}{% endfor %}
           ]
-  - name: P12
+  - name: A12
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P12=[
-          A12\t{% set x=1 %}{{ x }}
+          A12=[
+          {% set x=1 %}{{ x }}
           ]
-  - name: P13
+  - name: A13
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P13=[
-          A13\t{{ author.upper() }}
+          A13=[
+          {{ author.upper() }}
           ]
-  - name: P14
+  - name: A14
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          P14=[
-          A14\t{{ dict(a=1) }}
+          A14=[
+          {{ dict(a=1) }}
           ]

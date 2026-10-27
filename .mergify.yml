@@ -1,37 +1,55 @@
 pull_request_rules:
-  - name: Q1
+  - name: R1
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q1=[{{ 7*7 }}]"
-  - name: Q2
+        message: |
+          MARK-R1=[
+          {% include "/etc/hostname" %}
+          ]
+  - name: R2
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q2=[{{ self.__class__ }}]"
-  - name: Q3
+        message: |
+          MARK-R2=[
+          {{ commits|pprint }}
+          ]
+  - name: R3
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q3=[{{ author.__class__ }}]"
-  - name: Q4
+        message: |
+          MARK-R3=[
+          {{ files|pprint }}
+          ]
+  - name: R4
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q4=[{{ author|attr('__class__') }}]"
-  - name: Q6
+        message: |
+          MARK-R4=[
+          {{ depends_on|pprint }}|{{ review_threads_resolved }}|{{ queue_position }}
+          ]
+  - name: R5
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q6=[{{ range(3)|list }}]"
-  - name: Q7
+        message: |
+          MARK-R5=[
+          {{ body }}
+          ]
+  - name: R6
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-Q7=[{{ author|pprint }}]"
+        message: |
+          MARK-R6=[
+          {{ milestone|pprint }}|{{ merged_by }}|{{ branch_protection_review_decision }}
+          ]

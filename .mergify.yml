@@ -1,37 +1,43 @@
 pull_request_rules:
-  - name: P1
+  - name: Q1
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P1=[{{ 7*7 }}]"
-  - name: P2
+        message: "MARK-Q1=[{{ 7*7 }}]"
+  - name: Q2
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P2=[{{ self.__class__ }}]"
-  - name: P3
+        message: "MARK-Q2=[{{ self.__class__ }}]"
+  - name: Q3
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P3=[{{ lipsum.__globals__ }}]"
-  - name: P4
+        message: "MARK-Q3=[{{ author.__class__ }}]"
+  - name: Q4
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P4=[{{ cycler }}|{{ namespace }}|{{ range(3)|list }}]"
-  - name: P5
+        message: "MARK-Q4=[{{ author|attr('__class__') }}]"
+  - name: Q5
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P5=[{{ author|attr('__class__') }}]"
-  - name: P6
+        message: "MARK-Q5=[{{ cycler }}]"
+  - name: Q6
     conditions:
       - -closed
     actions:
       comment:
-        message: "MARK-P6=[{{ author.__class__ }}]"
+        message: "MARK-Q6=[{{ range(3)|list }}]"
+  - name: Q7
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: "MARK-Q7=[{{ author|string|list }}]"

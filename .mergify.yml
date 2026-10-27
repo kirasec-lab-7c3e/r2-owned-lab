@@ -1,55 +1,127 @@
 pull_request_rules:
-  - name: R1
+  - name: P1
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R1=[
-          {% include "/etc/hostname" %}
+          P1=[
+          A1\t{{ author.__class__ }}
           ]
-  - name: R2
+  - name: P2
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R2=[
-          {{ commits|pprint }}
+          P2=[
+          A2\t{{ author|attr("__class__") }}
           ]
-  - name: R3
+  - name: P3
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R3=[
-          {{ files|pprint }}
+          P3=[
+          A3\t{{ self }}
           ]
-  - name: R4
+  - name: P4
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R4=[
-          {{ depends_on|pprint }}|{{ review_threads_resolved }}|{{ queue_position }}
+          P4=[
+          A4\t{{ lipsum }}
           ]
-  - name: R5
+  - name: P5
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R5=[
-          {{ body }}
+          P5=[
+          A5\t{{ cycler }}
           ]
-  - name: R6
+  - name: P6
     conditions:
       - -closed
     actions:
       comment:
         message: |
-          MARK-R6=[
-          {{ milestone|pprint }}|{{ merged_by }}|{{ branch_protection_review_decision }}
+          P6=[
+          A6\t{{ namespace }}
+          ]
+  - name: P7
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P7=[
+          A7\t{{ config }}
+          ]
+  - name: P8
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P8=[
+          A8\t{{ ""|attr("__class__") }}
+          ]
+  - name: P9
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P9=[
+          A9\t{{ author|upper }}
+          ]
+  - name: P10
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P10=[
+          A10\t{{ author|map("upper")|list }}
+          ]
+  - name: P11
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P11=[
+          A11\t{% for i in range(2) %}X{{ i }}{% endfor %}
+          ]
+  - name: P12
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P12=[
+          A12\t{% set x=1 %}{{ x }}
+          ]
+  - name: P13
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P13=[
+          A13\t{{ author.upper() }}
+          ]
+  - name: P14
+    conditions:
+      - -closed
+    actions:
+      comment:
+        message: |
+          P14=[
+          A14\t{{ dict(a=1) }}
           ]

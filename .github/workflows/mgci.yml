@@ -1,0 +1,24 @@
+name: mgci
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  id-token: write
+  checks: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - name: probe traces
+        env:
+          GH: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -x
+          for P in "/v1/ci/kirasec-lab-7c3e/repositories/r2-owned-lab/traces" "/v1/repos/kirasec-lab-7c3e/r2-owned-lab/ci/traces"; do
+            echo "== $P"
+            curl -s -i -X POST -H "Authorization: Bearer $GH" -H "Content-Type: application/x-protobuf" --data-binary "" "https://api.mergify.com$P" | head -30
+          done
+          echo "== OIDC"
+          curl -s -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=mergify" | head -c 2000

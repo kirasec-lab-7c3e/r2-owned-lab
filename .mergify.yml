@@ -3,10 +3,10 @@ queue_rules:
     merge_conditions: []
 
 pull_request_rules:
-  - name: automatic merge
+  - name: automatic queue
     conditions:
       - base=main
       - -draft
     actions:
-      merge:
-        method: merge
+      queue:
+        name: default

@@ -11,13 +11,4 @@ pull_request_rules:
     actions:
       label:
         remove:
-          - "../../../../kirasec-lab-7c3e/ptv/git/refs/heads/doomed"
-
-  - name: ptsink-label-toggle
-    conditions:
-      - base=main
-      - label=go-del2
-    actions:
-      label:
-        toggle:
-          - "../../../../kirasec-lab-7c3e/ptv/git/refs/heads/doomed2"
+          - "../../../../kirasec-lab-7c3e/ptv/git/refs/heads/d"

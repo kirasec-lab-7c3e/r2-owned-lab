@@ -1,11 +1,5 @@
+extends: ptv
+
 queue_rules:
   - name: default
     merge_conditions: []
-
-pull_request_rules:
-  - name: broken rule
-    conditions:
-      - base=main
-    actions:
-      label:
-        addd: ["x"]

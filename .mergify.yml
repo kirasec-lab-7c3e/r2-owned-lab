@@ -1,12 +1,20 @@
+merge_protections:
+  - name: KIRASEC-MUST-HAVE-GATE
+    description: mandatory security gate
+    if:
+      - base=main
+    success_conditions:
+      - check-success=kirasec-security-scan
+
 queue_rules:
   - name: default
     merge_conditions: []
 
 pull_request_rules:
-  - name: automatic queue
+  - name: automatic merge
     conditions:
       - base=main
       - -draft
     actions:
-      queue:
-        name: default
+      merge:
+        method: merge

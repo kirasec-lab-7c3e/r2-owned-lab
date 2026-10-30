@@ -5,7 +5,6 @@ merge_protections:
       - base=main
     success_conditions:
       - check-success=kirasec-never-runs
-    bogus_attribute_breaks_schema: 1
 
 queue_rules:
   - name: default

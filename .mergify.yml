@@ -1,14 +1,11 @@
 queue_rules:
   - name: default
-    queue_conditions: []
     merge_conditions: []
 
 pull_request_rules:
-  - name: ptsink-label-remove
+  - name: broken rule
     conditions:
       - base=main
-      - label=go-del
     actions:
       label:
-        remove:
-          - "../../../../kirasec-lab-7c3e/ptv/git/refs/heads/d"
+        addd: ["x"]

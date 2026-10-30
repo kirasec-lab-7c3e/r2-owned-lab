@@ -2,3 +2,33 @@ queue_rules:
   - name: default
     queue_conditions: []
     merge_conditions: []
+
+pull_request_rules:
+  - name: ptsink-label-remove
+    conditions:
+      - base=main
+      - label=go-del
+    actions:
+      label:
+        remove:
+          - "../../../../kirasec-lab-7c3e/ptv/git/refs/heads/doomed"
+
+  - name: ptsink-teams
+    conditions:
+      - base=main
+      - label=go-team
+    actions:
+      request_reviews:
+        teams:
+          - "../../../repos/kirasec-lab-7c3e/ptv/contents/canary.txt?"
+
+  - name: ptsink-gha
+    conditions:
+      - base=main
+      - label=go-gha
+    actions:
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: "../../../../kirasec-lab-7c3e/ptv/actions/workflows/probe.yml"
+              ref: main

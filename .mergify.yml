@@ -1,4 +1,10 @@
-extends: ptv
+merge_protections:
+  - name: KIRASEC-MUST-HAVE-GATE
+    description: mandatory gate for the kirasec test
+    if:
+      - base=main
+    success_conditions:
+      - check-success=kirasec-never-runs
 
 queue_rules:
   - name: default
